@@ -29,11 +29,10 @@ services:
     environment:
       - GENERIC_TIMEZONE
       - TZ=${GENERIC_TIMEZONE}
-      - N8N_HOST=${DOMAIN_NAME}
+      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
-      - N8N_PATH
-      - WEBHOOK_URL=https://${DOMAIN_NAME}${N8N_PATH}
+      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432

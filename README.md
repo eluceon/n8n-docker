@@ -7,7 +7,7 @@ n8n workflow automation setup using Docker Compose with PostgreSQL database and 
 - 🔒 Secure database configuration with separate users
 - 📦 Named volumes for data persistence
 - 🔄 Automated daily backups with 7-day retention
-- 🌐 Subdirectory deployment support (`/automation/`)
+- 🌐 Subdomain deployment (subdomain.your-domain.com)
 - ♻️ Auto-restart on system reboot
 
 ## Prerequisites
@@ -30,6 +30,7 @@ n8n workflow automation setup using Docker Compose with PostgreSQL database and 
 - `POSTGRES_N8N_USER` - n8n database user
 - `POSTGRES_N8N_PASSWORD` - n8n database password
 - `DOMAIN_NAME` - Your domain (e.g., example.com)
+- `SUBDOMAIN` - Your subdomain (e.g., n8n)
 - `GENERIC_TIMEZONE` - Your timezone (e.g., Europe/Moscow)
 
 ### 3. Make scripts executable
@@ -43,5 +44,5 @@ n8n workflow automation setup using Docker Compose with PostgreSQL database and 
 #### Setup cron job
 
 `crontab -e`
-##### Add this line for daily backups at 3:00 AM:
+##### Add this line for daily backups:
 `0 3 * * * /root/backup-n8n.sh >> /var/log/n8n-backup.log 2>&1`
