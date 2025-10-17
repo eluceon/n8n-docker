@@ -2,7 +2,7 @@ name: n8n-docker
 
 services:
   postgres:
-    image: postgres:16
+    image: postgres:17-alpine
     container_name: n8n_postgres
     restart: always
     environment:
@@ -21,17 +21,17 @@ services:
       retries: 10
 
   n8n:
-    image: n8nio/n8n:1.114.2
+    image: n8nio/n8n:1.116.1
     container_name: n8n
     restart: always
     ports:
-      - "127.0.0.1:5678:5678"
+      - 5678:5678
     environment:
       - GENERIC_TIMEZONE
-      - TZ=${GENERIC_TIMEZONE}
       - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
+      - NODE_ENV=production
       - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
