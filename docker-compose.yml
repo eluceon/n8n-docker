@@ -21,7 +21,7 @@ services:
       retries: 10
 
   n8n:
-    image: n8nio/n8n:2.0.0
+    image: n8nio/n8n:2.7.3
     container_name: n8n
     restart: always
     ports:
@@ -51,7 +51,7 @@ services:
         condition: service_healthy
 
   n8n-runner:
-    image: n8nio/runners:2.0.0
+    image: n8nio/runners:2.7.3
     container_name: n8n_runner
     restart: always
     command: ["javascript"]
